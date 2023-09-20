@@ -1,4 +1,4 @@
-$size1: 13em;
+$size1: 8em;
 $size2: 3.5em;
 $size3: 3em;
 $size4: 2em;
@@ -6,15 +6,16 @@ $size5: 1.5em;
 $size6: 1em;
 
 ion-content {
-  --ion-font-family: 'Roboto', sans-serif;
+  --ion-font-family: 'Roboto Slab', sans-serif;
 }
 
 ion-header {
-  --ion-text-color: #aaa;
+  --ion-text-color: white;
+  --background: #0796e9;
 }
 
 ion-content {
-  --background: linear-gradient( rgb(14, 73, 107), #6dd5fa) !important;
+  --background: #39a39e;
   --ion-text-color: #222;
 }
 
@@ -23,59 +24,122 @@ ion-content {
   text-align: center;
 }
 
-.Kota {
-  display: block;
-  font-size: $size3;
-  font-weight: bold;
-  padding-top: 0.2em;
+.searchBar {
+  background-color: #2b4b52;
+  color: white;
 }
 
-.tanggal {
-  display: block;
+.city {
+  display: flex;
+  align-items: start;
+  font-size: $size3;
+  font-weight: bolder;
+  padding-top: 0.2em;
+  padding-left: 0.5em;
+}
+
+.date {
+  display: flex;
+  align-items: start;
   font-size: $size5;
   font-weight: bold;
+  padding-left: 1.1em;
+  color: white;
 }
 
-.deskripsi {
+.description {
   display: block;
   font-size: $size3;
   font-weight: bold;
 }
 
-.tempratur {
+.temperature {
   display: block;
   font-size: $size1;
-  padding: 0px;
+  font-weight: bold;
+  padding-top: 20px;
   margin: 0px;
+  color: white;
 }
 
 .icon {
   display: block;
   font-size: $size4;
-  padding-top: 0px;
+  margin-top: -30px;
+  margin-bottom: -30px;
 }
 
 ion-grid {
   text-align: center;
-  position: fixed;
-  bottom: 0%;
-  margin: 0 auto;
+  font-size: larger;
+  font-weight: bolder;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.hari {
+.lembab {
   display: block;
-  font-weight: bold;
+  font-weight: bolder;
 }
 
-.perubahan {
+.humid {
+  font-size: 2em;
+  color: white;
+}
+
+.img-lembab {
+  width: 60%;
+  height: 30%;
+}
+
+.max {
   display: block;
+  font-weight: bolder;
 }
 
-.hi-temp {
+.img-max {
+  margin-top: -30px;
+  width: 55%;
+  height: 55%;
+}
+
+.min {
   display: block;
+  font-weight: bolder;
 }
 
-.lo-temp {
-  display: block;
+.img-min {
+  margin-top: -30px;
+  width: 55%;
+  height: 55%;
 }
 
+.temp {
+  font-size: 2em;
+  color: white;
+}
+
+.panah {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bolder;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bolder;
+}
+
+.img-load {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10em;
+  margin-left: 2.5em;
+  width: 80%;
+  height: 80%;
+}

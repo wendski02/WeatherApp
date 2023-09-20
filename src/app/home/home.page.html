@@ -1,83 +1,76 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Weather app
-    </ion-title>
+    <ion-title> Weather App </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="main">
-    <span class="Kota">Manado</span>
-    <span class="Tanggal">Senin, 3:54pm</span>
-    
-    <div class="icon">
-      <img src="../../assets/awan2.png" alt="">
+  <ion-searchbar
+    [(ngModel)]="cityName"
+    (ngModelChange)="loadData()"
+    animated="true"
+    placeholder="Search City Here"
+    class="searchBar"
+  ></ion-searchbar>
+
+  <div *ngIf="!loading">
+    <div class="main">
+      <span class="city">{{cityName}}</span>
+      <span class="date">{{todayDate | date: "EEE, dd MMM"}}</span>
+
+      <div class="icon">
+        <img [src]="weatherIcon" alt="" />
+      </div>
+
+      <span class="description">{{ (weatherDetails?.description) }}</span>
+      <span class="temperature"
+        >{{ (weatherTemp?.temp - 273.15).toFixed(0) }}°C</span
+      >
     </div>
 
-    <span class="deskripsi">Berawan</span>
-    <span class="tempratur">24°</span>
+    <ion-grid>
+      <ion-col>
+        <span class="max"
+          >Max <br />
+          Temperature:</span
+        >
+        <br />
+        <span class="temp"
+          >{{ (weatherTemp?.temp_max - 273.15).toFixed(0) }}°C</span
+        >
+        <br />
+        <br />
+        <img src="../../assets/max-temp.png" alt="" class="img-max" />
+      </ion-col>
 
+      <ion-col>
+        <span class="lembab">Humidity:</span>
+        <br />
+        <br />
+        <span class="humid">{{ (weatherTemp?.humidity) }}%</span>
+        <br />
+        <br />
+        <img src="../../assets/kelembapan.png" alt="" class="img-lembab" />
+      </ion-col>
+
+      <ion-col>
+        <span class="min"
+          >Min <br />
+          Temperature:</span
+        >
+        <br />
+        <span class="temp"
+          >{{ (weatherTemp?.temp_min - 273.15).toFixed(0) }}°C</span
+        >
+        <br />
+        <br />
+        <img src="../../assets/min-temp.png" alt="" class="img-min" />
+      </ion-col>
+    </ion-grid>
   </div>
 
-  <!-- Perkiraan 7 hari -->
-  <ion-grid>
-    <!-- baris hari -->
-    <ion-row>
-      <ion-col class="hari">Sen</ion-col>
-      <ion-col class="hari">Sel</ion-col>
-      <ion-col class="hari">Rab</ion-col>
-      <ion-col class="hari">Kam</ion-col>
-      <ion-col class="hari">Jum</ion-col>
-      <ion-col class="hari">Sab</ion-col>
-      <ion-col class="hari">Min</ion-col>
-    </ion-row>
+  <div *ngIf="loading">
+    <img src="../../assets/search_1" alt="" class="img-load">
+  </div>
 
-    <!-- kemungkinan terjadi perubahan cuaca -->
-    <ion-row>
-      <ion-col class="perubahan">60%</ion-col>
-      <ion-col class="perubahan">-</ion-col>
-      <ion-col class="perubahan">20%</ion-col>
-      <ion-col class="perubahan">60%</ion-col>
-      <ion-col class="perubahan">-</ion-col>
-      <ion-col class="perubahan">-</ion-col>
-      <ion-col class="perubahan">-</ion-col>
-    </ion-row>
-
-    <!-- weather icon -->
-    <ion-row>
-      <ion-col class="icon-sm"><img src="../../assets/awan2.png"></ion-col>
-      <ion-col class="icon-sm"><img src="../../assets/awan2.png"></ion-col>
-      <ion-col class="icon-sm"><img src="../../assets/awan2.png"></ion-col>
-      <ion-col class="icon-sm"><img src="../../assets/awan2.png"></ion-col>
-      <ion-col class="icon-sm"><img src="../../assets/awan2.png"></ion-col>
-      <ion-col class="icon-sm"><img src="../../assets/awan2.png"></ion-col>
-      <ion-col class="icon-sm"><img src="../../assets/awan2.png"></ion-col>
-    </ion-row>
-
-    <!-- Tempratur Maksimal -->
-    <ion-row>
-      <ion-col class="hi-temp">32°c</ion-col>
-      <ion-col class="hi-temp">27°c</ion-col>
-      <ion-col class="hi-temp">25°c</ion-col>
-      <ion-col class="hi-temp">26°c</ion-col>
-      <ion-col class="hi-temp">28°c</ion-col>
-      <ion-col class="hi-temp">25°c</ion-col>
-      <ion-col class="hi-temp">32°c</ion-col>
-    </ion-row>
-
-    <!-- Tempratur minimal -->
-    <ion-row>
-      <ion-col class="lo-temp">15°c</ion-col>
-      <ion-col class="lo-temp">17°c</ion-col>
-      <ion-col class="lo-temp">16°c</ion-col>
-      <ion-col class="lo-temp">16°c</ion-col>
-      <ion-col class="lo-temp">18°c</ion-col>
-      <ion-col class="lo-temp">18°c</ion-col>
-      <ion-col class="lo-temp">17°c</ion-col>
-    </ion-row>
-
-
-
-  </ion-grid>
 </ion-content>
